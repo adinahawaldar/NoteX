@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NoteX Login</title>
+
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f4f4f4;
+    }
+    .login-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+      text-align: center;
+    }
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      background: #0036aa;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h1>Welcome to NoteX</h1>
+    <p>Sign in with Google to continue</p>
+    <button id="googleSignInBtn">Sign in with Google</button>
+  </div>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBuDk0Eokz041OmOqecq9m555uIoESr8Fw",
+      authDomain: "notex-6fdd6.firebaseapp.com",
+      projectId: "notex-6fdd6",
+      storageBucket: "notex-6fdd6.firebasestorage.app",
+      messagingSenderId: "34528695172",
+      appId: "1:34528695172:web:d5f5f5810685ee71b683d1",
+      measurementId: "G-89B0V6XQK9"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    document.getElementById('googleSignInBtn').addEventListener('click', () => {
+      auth.signInWithPopup(provider)
+        .then((result) => {
+         
+          window.location.href = "index.html";
+        })
+        .catch((error) => {
+          alert("Sign in failed: " + error.message);
+          console.error(error);
+        });
+    });
+  </script>
+
+</body>
+</html>

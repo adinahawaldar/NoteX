@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NoteVault - Your Notes, Organized</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+<header class="fade-in">
+  <div class="logo">📝 NoteX</div>
+  <nav>
+    <a href="mynotes.html">My Notes</a>
+    <a href="#features">Features</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#newsletter">Newsletter</a>
+    <a href="#blog">Blog</a>
+    <a href="#faq">FAQ</a>
+    <a href="#" id="loginBtn">Login</a>
+  </nav>
+</header>
+
+<section class="hero fade-in hero-section">
+  <h1 class="hero-title">
+    Store Your Thoughts.<br />
+    Anytime. Anywhere.
+  </h1>
+  <p class="hero-subtitle">
+    Your personal cloud-powered note-taking space — fast, secure, and easy to use.
+  </p>
+  <a href="mynotes.html" id="startNotesBtn" class="btn-primary btn-animated">
+    <span>🚀 Start Taking Notes</span>
+  </a>
+</section>
+
+<section id="features" class="features fade-in">
+  <h2>Why Choose NoteX?</h2>
+  <div class="feature-cards">
+    <div class="card">
+      <h3>📂 View Your Notes</h3>
+      <p>Access all your saved notes instantly, from any device.</p>
+    </div>
+    <div class="card">
+      <h3>⭐ Star Important Notes</h3>
+      <p>Mark your most important ideas so they’re always on top.</p>
+    </div>
+    <div class="card">
+      <h3>🔒 Secure & Private</h3>
+      <p>Your notes are encrypted and stored safely in the cloud.</p>
+    </div>
+  </div>
+</section>
+
+<section id="how-it-works" class="how-it-works fade-in">
+  <h2>How It Works</h2>
+  <div class="steps">
+    <div class="step"><span>1</span><h3>Create an Account</h3><p>Sign up in seconds and start saving your notes.</p></div>
+    <div class="step"><span>2</span><h3>Add Your Notes</h3><p>Type, paste, or upload — it’s that simple.</p></div>
+    <div class="step"><span>3</span><h3>Access Anywhere</h3><p>Retrieve and manage your notes from any device.</p></div>
+  </div>
+</section>
+
+<section id="newsletter" class="newsletter fade-in">
+  <h2>Stay Updated with Our Newsletter</h2>
+  <p>Subscribe to receive inspiring motivation and productivity<br> tips to help you make the most of every day.
+
+</p>
+  <form>
+    <input type="email" placeholder="Enter your email" required/>
+    <button type="submit">Subscribe</button>
+  </form>
+</section>
+
+<section id="blog" class="fade-in blog">
+  <h2>From Our Blog</h2>
+  <div class="blog-posts">
+    <article class="hover-effect">
+      <h3>Maximizing Productivity with Smart Note Management</h3>
+      <p>Explore advanced strategies to organize and retrieve notes efficiently for peak performance.</p>
+      <a href="/blog/maximizing-productivity" class="btn-secondary">Read More</a>
+    </article>
+    <article class="hover-effect">
+      <h3>Data Privacy in Cloud Notes: What You Need to Know</h3>
+      <p>A deep dive into securing your digital notes and understanding privacy policies.</p>
+      <a href="/blog/data-privacy-cloud" class="btn-secondary">Read More</a>
+    </article>
+    <article class="hover-effect">
+      <h3>Collaborative Note-Taking for Remote Teams</h3>
+      <p>Learn how NoteX supports seamless teamwork, keeping everyone in sync.</p>
+      <a href="/blog/collaborative-notes" class="btn-secondary">Read More</a>
+    </article>
+  </div>
+</section>
+
+
+<section id="security-privacy" class="fade-in security-section">
+  <h2>Security & Privacy You Can Trust</h2>
+  <p>
+    At NoteX, your privacy is our top priority. We use end-to-end encryption to protect your notes, comply with GDPR standards, and never show ads. Your data belongs to you — securely stored and accessible only by you.
+  </p>
+  <div class="security-features">
+    <div>
+      <strong>🔐 End-to-End Encryption</strong>
+      <p>Your notes are encrypted at rest and in transit.</p>
+    </div>
+    <div>
+      <strong>🛡 GDPR Compliant</strong>
+      <p>We follow strict privacy laws protecting your personal data.</p>
+    </div>
+    <div>
+      <strong>🚫 No Ads, Ever</strong>
+      <p>Enjoy a clean, distraction-free note-taking environment.</p>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" class="fade-in testimonials-section">
+  <h2>What Our Users Say</h2>
+  <div class="testimonial-list">
+    <blockquote>
+      "NoteX has completely transformed how I organize my work notes — fast, intuitive, and reliable."
+      <span>– Priya K., Product Manager</span>
+    </blockquote>
+    <blockquote>
+      "I love the clean design and privacy focus. Finally, a notes app I trust with sensitive info."
+      <span>– Anil S., Freelancer</span>
+    </blockquote>
+    <blockquote>
+      "Managing my ideas is a breeze. The star and search tools make everything quick and effortless!"
+      <span>– Meera D., Software Developer</span>
+    </blockquote>
+    <blockquote>
+      "From quick ideas to detailed plans, I can always find my notes instantly!"
+      <span>– Rahul M., Consultant</span>
+    </blockquote>
+  </div>
+</section>
+
+<section id="faq" class="fade-in faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="accordion">
+    <button class="accordion-header">How can I organize my notes efficiently?</button>
+    <div class="accordion-content">
+      <p>Use tags, stars, and folders to keep your notes easy to find and manage.</p>
+    </div>
+
+    <button class="accordion-header">What security measures protect my data?</button>
+    <div class="accordion-content">
+      <p>We use end-to-end encryption and comply with GDPR to keep your data safe.</p>
+    </div>
+
+    <button class="accordion-header">Can I collaborate with others on notes?</button>
+    <div class="accordion-content">
+      <p>Collaboration features are coming soon, allowing seamless teamwork within NoteVault.</p>
+    </div>
+
+    <button class="accordion-header">Is there an offline mode?</button>
+    <div class="accordion-content">
+      <p>Offline mode is coming soon! You’ll be able to access your notes without internet and sync them when you’re back online.</p>
+    </div>
+  </div>
+</section>
+
+<footer id="contact" class="fade-in">
+  <p>© 2025 NoteX. All rights reserved.</p>
+  <p>
+    <a href="#">Privacy Policy</a> | 
+    <a href="#">Terms of Service</a>
+  </p>
+</footer>
+
+
+<script src="app.js"></script>
+</body>
+</html>
