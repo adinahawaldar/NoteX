@@ -308,7 +308,7 @@ function updateStatistics() {
   const createdDateEl = document.getElementById('createdDate');
   const lastEditedEl = document.getElementById('lastEdited');
   const monthlyNotesEl = document.getElementById('monthlyNotes');
-  const monthlyActiveDaysEl = document.getElementById('monthlyActiveDays'); // ✅ New
+  const monthlyActiveDaysEl = document.getElementById('monthlyActiveDays'); 
 
   let totalWords = 0;
   let totalChars = 0;
@@ -347,7 +347,7 @@ function updateStatistics() {
   if (wordCountEl) wordCountEl.textContent = totalWords.toLocaleString();
   if (charCountEl) charCountEl.textContent = totalChars.toLocaleString();
   if (monthlyNotesEl) monthlyNotesEl.textContent = monthlyNotes.length;
-  if (monthlyActiveDaysEl) monthlyActiveDaysEl.textContent = activeDays; // ✅ Show active days
+  if (monthlyActiveDaysEl) monthlyActiveDaysEl.textContent = activeDays; 
 
   const monthlyNotesBar = document.querySelector('#monthlyNotesBar');
   if (monthlyNotesBar) {
@@ -393,7 +393,7 @@ addNoteForm.addEventListener('submit', async e => {
     tags = noteTagsInput.value.split(',').map(t => t.trim()).filter(Boolean);
   }
 
-  const color = document.getElementById('noteColorInput')?.value || '#fff9c4';
+  const color = document.getElementById('noteColorInput')?.value || '#ffffffff';
   const folder = folderInput.value.trim();
 
   if (!title && !content) return alert('Note cannot be empty.');
@@ -447,7 +447,7 @@ function togglePin(note, pinStatus) {
 
 function moveNoteToTrash(note) {
   if (!user) return;
-  if (confirm('Are you sure you want to move this note to Trash? You can restore it within 7 days.')) {
+  if (confirm('Are you sure you want to delete this note?')) {
     db.collection('notes')
       .doc(user.uid)
       .collection('userNotes')
@@ -468,7 +468,7 @@ function openEditModal(note) {
     editNoteTagsInput.value = (note.tags || []).join(', ');
   }
   if (editNoteColorInput) {
-    editNoteColorInput.value = note.color || '#fff9c4';
+    editNoteColorInput.value = note.color || '#ffffffff';
   }
   editModal.setAttribute('aria-hidden', 'false');
   editModal.classList.add('show');
@@ -488,7 +488,7 @@ saveEditBtn.addEventListener('click', () => {
   if (editNoteTagsInput?.value && editNoteTagsInput.value.trim()) {
     updatedTags = editNoteTagsInput.value.split(',').map(t => t.trim()).filter(Boolean);
   }
-  const updatedColor = editNoteColorInput ? editNoteColorInput.value : '#fff9c4';
+  const updatedColor = editNoteColorInput ? editNoteColorInput.value : '#ffffffff';
 
   if (!updatedTitle && !updatedContent) {
     alert('Note cannot be empty!');

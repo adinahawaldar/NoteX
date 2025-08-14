@@ -547,6 +547,44 @@ blockquote span {
   margin: 0;
 }
 
+
+.daily-thought {
+  text-align: center;
+  padding: 3rem 2rem;
+  max-width: 700px;
+  margin: auto;
+}
+
+.daily-thought h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--primary, #4a4a4a);
+}
+
+.thought-card {
+  display: inline-block;
+  background: #fff;
+  color: #333;
+  padding: 3rem 3rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.thought-card.rotate {
+  transform: rotateY(180deg);
+}
+
+#thoughtText {
+  display: inline-block;
+  backface-visibility: hidden;
+}
+
+
+
 footer {
   background: var(--text);
   color: white;

@@ -59,43 +59,28 @@ accHeaders.forEach(header => {
   });
 });
 
-const newsletterForm = document.querySelector('.newsletter form');
-const emailInput = newsletterForm.querySelector('input[type="email"]');
+const thoughts = [
+  "Keep your ideas alive — write them down!",
+  "Small steps every day lead to big results.",
+  "Your notes are seeds for your future projects.",
+  "Stay organized, stay ahead.",
+  "Creativity loves clarity — jot it down!"
+];
 
-newsletterForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const email = emailInput.value.trim();
+let currentIndex = 0;
+const card = document.getElementById("thoughtCard");
+const text = document.getElementById("thoughtText");
 
-  if (!validateEmail(email)) {
-    alert('Please enter a valid email address.');
-    return;
-  }
-
-  try {
-    const snapshot = await db.collection('subscribers')
-      .where('email', '==', email)
-      .get();
-
-    if (!snapshot.empty) {
-      alert('This email is already subscribed.');
-      return;
-    }
-
-    await db.collection('subscribers').add({
-      email: email,
-      subscribedAt: firebase.firestore.FieldValue.serverTimestamp()
-    });
-
-    alert('Thanks for subscribing! 🎉 Get ready for inspiring tips and motivation delivered straight to your inbox.');
-    newsletterForm.reset();
-  } catch (error) {
-    console.error('Subscription failed:', error);
-    alert('Subscription failed. Please try again later.');
-  }
-});
-
-function validateEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
+function showNextThought() {
+  card.classList.add("rotate");
+  
+  setTimeout(() => {
+    currentIndex = (currentIndex + 1) % thoughts.length;
+    text.textContent = thoughts[currentIndex];
+    card.classList.remove("rotate");
+  }, 300); 
 }
+
+card.addEventListener("click", showNextThought);
+card.addEventListener("mouseover", showNextThought);
 
