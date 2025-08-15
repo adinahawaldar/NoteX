@@ -110,6 +110,12 @@ auth.onAuthStateChanged(u => {
   }
 });
 
+
+document.getElementById("hamburger").addEventListener("click", () => {
+  document.getElementById("headerActions").classList.toggle("show");
+});
+
+
 function tsToDateSafe(ts) {
   try {
     if (!ts) return null;

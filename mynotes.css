@@ -163,7 +163,138 @@ header {
   background-color: #e0a800;
 }
 
-/* Main Content Styles */
+@media (max-width: 768px) {
+  /* Keep logo on the left */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Reorder items: logo | search | hamburger */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  /* Always visible search bar */
+  #searchInput {
+    flex: 1;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+  }
+
+  /* Hide all controls except search + hamburger by default */
+  #folderSelect,
+  #templateSelect,
+  #sortSelect,
+  #starToggle,
+  #settingsBtn,
+  #logoutBtn,
+  #backBtn {
+    display: none;
+  }
+
+  /* Hamburger style */
+  .hamburger {
+    display: block;
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding: 0.3rem 0.6rem;
+  }
+
+  /* When hamburger menu is open, show other controls vertically */
+  .header-actions.show #folderSelect,
+  .header-actions.show #templateSelect,
+  .header-actions.show #sortSelect,
+  .header-actions.show #starToggle,
+  .header-actions.show #settingsBtn,
+  .header-actions.show #logoutBtn,
+  .header-actions.show #backBtn {
+    display: block;
+    width: 100%;
+  }
+
+  /* Stack menu when expanded */
+  .header-actions.show {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+    background: var(--card-bg);
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+  }
+}
+
+
+/* Mobile Header Adjustments */
+@media (max-width: 768px) {
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+    }
+
+    /* Keep search + hamburger in one row */
+    .mobile-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    /* Search Bar Style */
+    .mobile-header .search-bar {
+        flex: 1;
+    }
+
+    .mobile-header .search-bar input {
+        width: 100%;
+        padding: 0.4rem 0.6rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 0.9rem;
+    }
+
+    /* Hamburger Menu Style */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        cursor: pointer;
+        padding: 5px;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: #333;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    /* Hide normal navigation menu on mobile */
+    nav ul {
+        display: none;
+    }
+}
+
+/* Desktop: Hide mobile header */
+@media (min-width: 769px) {
+    .mobile-header {
+        display: none;
+    }
+}
+
+
+
 main {
   padding: 2rem;
   max-width: 1400px;

@@ -18,38 +18,45 @@
 <body>
 
   <header>
-    <div class="logo">📝 NoteX</div>
+  <div class="logo">📝 NoteX</div>
 
-    <div class="header-actions">
-      <input type="search" id="searchInput" placeholder="Search notes or tags..." autocomplete="off" />
 
-      <select id="folderSelect" title="Filter by Folder">
-        <option value="all">All Folders</option>
-      </select>
+  <div class="header-actions" id="headerActions">
+    <input type="search" id="searchInput" placeholder="Search notes or tags..." autocomplete="off" />
 
-      <select id="templateSelect" title="Note Template">
-        <option value="blank">Blank Note</option>
-        <option value="daily">Daily Journal</option>
-        <option value="meeting">Meeting Notes</option>
-        <option value="recipe">Recipe</option>
-      </select>
 
-      <select id="sortSelect" title="Sort Notes">
-        <option value="newest">Newest First</option>
-        <option value="oldest">Oldest First</option>
-        <option value="title">Title A-Z</option>
-        <option value="starred">Starred First</option>
-      </select>
+    <div class="hamburger" id="hamburger">☰</div>
 
-      <button id="starToggle" title="Toggle Starred Notes Only" aria-pressed="false">
-        ⭐ Starred Only
-      </button>
+  
 
-      <button id="settingsBtn" title="Settings">⚙️ Settings</button>
-      <button id="logoutBtn" title="Logout">Logout</button>
-      <button id="backBtn" title="Go to Landing Page">Home</button>
-    </div>
-  </header>
+    <select id="folderSelect" title="Filter by Folder">
+      <option value="all">All Folders</option>
+    </select>
+
+    <select id="templateSelect" title="Note Template">
+      <option value="blank">Blank Note</option>
+      <option value="daily">Daily Journal</option>
+      <option value="meeting">Meeting Notes</option>
+      <option value="recipe">Recipe</option>
+    </select>
+
+    <select id="sortSelect" title="Sort Notes">
+      <option value="newest">Newest First</option>
+      <option value="oldest">Oldest First</option>
+      <option value="title">Title A-Z</option>
+      <option value="starred">Starred First</option>
+    </select>
+
+    <button id="starToggle" title="Toggle Starred Notes Only" aria-pressed="false">
+      ⭐ Starred Only
+    </button>
+
+    <button id="settingsBtn" title="Settings">⚙️ Settings</button>
+    <button id="logoutBtn" title="Logout">Logout</button>
+    <button id="backBtn" title="Go to Landing Page">Home</button>
+  </div>
+</header>
+
 
   <main>
     <form id="addNoteForm" autocomplete="off" novalidate>
